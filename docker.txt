@@ -1,0 +1,66 @@
+#RUN DOCKER CONTAINER
+docker run <conteiner-name>
+# RUN CONTAINER IN THE BACKGROUND
+docker run -D <container-name>
+# RUN TAG
+docker run <image name>:tag
+eg: docker run redis:4.0
+# CREATE DOCKER CONTAINER
+docker run --name <container-name> <images-name>
+  
+#TO KNOW DOCKER IMAGES ON THE LOCAL MECHINE
+docker images/docker image ls
+#REMOVE DOCKER CONTAINER
+docker rm <container-ID>
+#REMOVE DOCKER IMAGE
+docker rmi <image-ID>
+#TO DOWNLOAD OR PULL AN IMAGE FROM DOCKER HUB
+docker image pull ubuntu:latest
+#RUN IMAGE USE ATTACH TERMINAL AND INDRACTIVE MODE
+docker run -it <image-id> <section>
+eg:- docker run -it 1e4467b07108 /bin/bash
+#STOP A CONTAINER
+docker stop <container-id>
+
+#RUN - PORT MAPPING
+docker run -p 80:5000 <image-name>
+
+#RUN - Volume mapping
+defualt location:- var/lib/{image name}
+eg: var/lib/mysql
+to change volume (change the storage directory)
+docker run -v /opt/datadir:/var/lib/mysql mysql
+
+#TO GET ADDITION DOCKER CONTAINER INFORMATION
+docker inspect < container name>
+
+# TO SEE THE DOCKER LOGS
+docker logs <container name>
+docker logd < container name> -t 200
+
+# TO SET ENVIRONMENT VARIABLE 
+docker run -e ENV_NAME=ENV_VALUE <app-name>
+
+#TO GET DOCKER HISTORY OF THE DONWLOADED FILE
+docker history <docker image>
+
+# TO TAKE BUILD
+docker build Dockerfile -t <image-name>
+
+#SLEEEP 
+docker run <container> sleep 5
+
+# ENTRYPOINT INSTRUCTION TO DYNAMICALLLY ASSIGN VALUE TO DOCKERFILE
+ENTRYPOINT["sleep"]
+docker run <container> 10 
+
+# TO SPECIFY STATIC ENTRYCOMMAND
+CMD sleep 5
+or we can dynamically set if we forget to assign sleep value
+FROM Ubuntu
+ENTRYPOINT["sleep"]
+CMD["5"]
+
+#TO OVERRIDE EXISTING COMMAND
+docker run --entrypoint <over ride command> <container name> <value>
+docker run --entrypoint sleep2.0 ubuntu-sleeper 10
