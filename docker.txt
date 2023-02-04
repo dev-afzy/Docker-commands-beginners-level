@@ -1,10 +1,16 @@
+# TO PULL AN IMAGE FROM DOCKER HUB OR REPO
+docker pull <container-name>
+
 #RUN DOCKER CONTAINER
 docker run <conteiner-name>
+
 # RUN CONTAINER IN THE BACKGROUND
 docker run -D <container-name>
+
 # RUN TAG
 docker run <image name>:tag
 eg: docker run redis:4.0
+
 # CREATE DOCKER CONTAINER
 docker run --name <container-name> <images-name>
   
