@@ -13,6 +13,9 @@ eg: docker run redis:4.0
 
 # CREATE DOCKER CONTAINER
 docker run --name <container-name> <images-name>
+
+# LIST DOCKER CONTAINERS
+docker ps
   
 #TO KNOW DOCKER IMAGES ON THE LOCAL MECHINE
 docker images/docker image ls
