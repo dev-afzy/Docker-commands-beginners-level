@@ -4,18 +4,21 @@ docker pull <container-name>
 #RUN DOCKER CONTAINER
 docker run <conteiner-name>
 
-# RUN CONTAINER IN THE BACKGROUND
-docker run -D <container-name>
+# RUN CONTAINER IN THE BACKGROUND /DETACHED MODE
+docker run -d <image-name>
 
 # RUN TAG
 docker run <image name>:tag
 eg: docker run redis:4.0
 
-# CREATE DOCKER CONTAINER
+# CREATE DOCKER CONTAINER WITH UNIQUE NAME
 docker run --name <container-name> <images-name>
 
 # LIST DOCKER CONTAINERS
 docker ps
+
+# LIST ALL DOCKER CONTAINERS INCLUDE THAT ALREADY RUN IN PAST
+docker ps -a
   
 #TO KNOW DOCKER IMAGES ON THE LOCAL MECHINE
 docker images/docker image ls
@@ -30,6 +33,9 @@ docker run -it <image-id> <section>
 eg:- docker run -it 1e4467b07108 /bin/bash
 #STOP A CONTAINER
 docker stop <container-id>
+
+#START A CONTAINER
+docker start <container-id>
 
 #RUN - PORT MAPPING
 docker run -p 80:5000 <image-name>
@@ -54,7 +60,11 @@ docker run -e ENV_NAME=ENV_VALUE <app-name>
 docker history <docker image>
 
 # TO TAKE BUILD
-docker build Dockerfile -t <image-name>
+docker build Dockerfile -t <image-name> .
+docker build -t <image-name> .
+
+#REMOVE ALL STOPPED DOCKER CONTAINER
+dokcer conatainer prune
 
 #SLEEEP 
 docker run <container> sleep 5
